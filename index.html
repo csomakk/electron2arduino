@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+
+        const { ipcRenderer } = require('electron');
+        
+        function sendMessage(arg) {
+            ipcRenderer.send('synchronous-message', arg);
+        }
+
+        function left() {
+            sendMessage('left');
+        }
+
+        function right() {
+            sendMessage('right');
+        }
+
+    </script> 
+    <meta charset="UTF-8">
+    <title>Arduino remote controller</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  </head>
+  <body>
+    <h1>Hello ARDUINO!</h1>
+    <input type="button" onclick="left()" value="Left" />
+    <input type="button" onclick="right()" value="Right" />
+  </body>
+</html>
